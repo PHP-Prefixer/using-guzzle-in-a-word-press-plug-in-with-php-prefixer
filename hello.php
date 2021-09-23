@@ -1,4 +1,5 @@
 <?php
+/* This file has been prefixed by <PHP-Prefixer> for "Using Guzzle in a WordPress plug-in with PHP-Prefixer" */
 
 /*
  * @package     Using prefixed Guzzle with PHP-Prefixer
@@ -18,7 +19,7 @@ Version: 1.0.0
 Author URI: https://php-prefixer.com/
 */
 
-use GuzzleHttp\Client as GuzzleHttpClient;
+use PPP\GuzzleHttp\Client as GuzzleHttpClient;
 
 function hello_prefixed_guzzle_get_number_fact()
 {
