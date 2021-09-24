@@ -18,6 +18,52 @@ It’s super quick to get a [PHP-Prefixer](https://php-prefixer.com/) project up
 
 Guzzle is a PHP HTTP client that makes it easy to send HTTP requests and trivial to integrate with web services. For more information, please, visit <https://docs.guzzlephp.org/en/stable/index.html>
 
+## How PHP Prefixing works
+
+[PHP-Prefixer](https://php-prefixer.com/) service works based on the following `composer.json` schema definition:
+
+```json
+...
+    "extra": {
+        "php-prefixer": {
+            "project-name": "Using Guzzle in a WordPress plug-in with PHP-Prefixer",
+            "namespaces-prefix": "PPP",
+            "global-scope-prefix": "PPP_",
+            "exclude-paths": [
+                "bin/"
+            ]
+        }
+    },
+...
+```
+
+This repository has an action `.github/workflows/prefix.yml` to execute the process to prefix the PHP code:
+
+```yml
+name: PHP-Prefixer
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run PHP-Prefixer
+        uses: PHP-Prefixer/php-prefixer-build-action@main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          personal_access_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          project_id: ${{ secrets.PROJECT_ID }}
+```
+
+To know more about how PHP-Prefixer service can be configured for a WordPress plug-in, check the following article:
+
+- [New Tutorial: Using PHP Composer in the WordPress Ecosystem](https://blog.php-prefixer.com/2020/10/23/new-tutorial-using-php-composer-in-the-wordpress-ecosystem/)
 
 ## References
 
