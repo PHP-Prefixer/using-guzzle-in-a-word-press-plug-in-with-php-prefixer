@@ -6,6 +6,7 @@
  *
  * @author      PHP-Prefixer <team@php-prefixer.com>
  * @copyright   Copyright (c)2021 DIV, SL. All rights reserved.
+ * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
  *
  * @see         https://php-prefixer.com
  */
