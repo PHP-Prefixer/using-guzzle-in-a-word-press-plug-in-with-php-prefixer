@@ -18,7 +18,6 @@ It’s super quick to get a [PHP-Prefixer](https://php-prefixer.com/) project up
 
 Guzzle is a PHP HTTP client that makes it easy to send HTTP requests and trivial to integrate with web services. For more information, please, visit <https://docs.guzzlephp.org/en/stable/index.html>
 
-
 ## References
 
 - Blog: [New Tutorial: Using PHP Composer in the WordPress Ecosystem](https://blog.php-prefixer.com/2020/10/23/new-tutorial-using-php-composer-in-the-wordpress-ecosystem/)
