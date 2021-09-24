@@ -26,7 +26,7 @@ Guzzle is a PHP HTTP client that makes it easy to send HTTP requests and trivial
 
 ## License
 
-MIT License
+GNU GENERAL PUBLIC LICENSE Version 3 License
 
 ## Copyright
 
