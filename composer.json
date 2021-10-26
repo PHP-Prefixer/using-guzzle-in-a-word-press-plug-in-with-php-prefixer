@@ -1,6 +1,9 @@
 {
     "name": "php-prefixer/using-guzzle-in-a-word-press-plug-in-with-php-prefixer",
     "description": "Using Guzzle in a WordPress plug-in with PHP-Prefixer. A plugin to showcase the PHP-Prefixer service. Install any library freely. PHP-Prefixer will manage your namespaces.",
+    "require": {
+        "guzzlehttp/guzzle": "^7.3"
+    },
     "extra": {
         "php-prefixer": {
             "project-name": "Using Guzzle in a WordPress plug-in with PHP-Prefixer",
@@ -10,8 +13,5 @@
                 "bin/"
             ]
         }
-    },
-    "require": {
-        "guzzlehttp/guzzle": "^7.3"
     }
 }
