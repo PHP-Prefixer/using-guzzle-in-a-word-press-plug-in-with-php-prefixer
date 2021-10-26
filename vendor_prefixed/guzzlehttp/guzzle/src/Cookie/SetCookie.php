@@ -93,7 +93,7 @@ class SetCookie
 
     public function __toString()
     {
-        $str = $this->data['Name'] . '=' . $this->data['Value'] . '; ';
+        $str = $this->data['Name'] . '=' . ($this->data['Value'] ?? '') . '; ';
         foreach ($this->data as $k => $v) {
             if ($k !== 'Name' && $k !== 'Value' && $v !== null && $v !== false) {
                 if ($k === 'Expires') {
@@ -129,7 +129,11 @@ class SetCookie
      */
     public function setName($name): void
     {
-        $this->data['Name'] = $name;
+        if (!is_string($name)) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Name'] = (string) $name;
     }
 
     /**
@@ -149,7 +153,11 @@ class SetCookie
      */
     public function setValue($value): void
     {
-        $this->data['Value'] = $value;
+        if (!is_string($value)) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Value'] = (string) $value;
     }
 
     /**
@@ -165,11 +173,15 @@ class SetCookie
     /**
      * Set the domain of the cookie.
      *
-     * @param string $domain
+     * @param string|null $domain
      */
     public function setDomain($domain): void
     {
-        $this->data['Domain'] = $domain;
+        if (!is_string($domain) && null !== $domain) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Domain'] = null === $domain ? null : (string) $domain;
     }
 
     /**
@@ -189,7 +201,11 @@ class SetCookie
      */
     public function setPath($path): void
     {
-        $this->data['Path'] = $path;
+        if (!is_string($path)) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Path'] = (string) $path;
     }
 
     /**
@@ -199,17 +215,21 @@ class SetCookie
      */
     public function getMaxAge()
     {
-        return $this->data['Max-Age'];
+        return null === $this->data['Max-Age'] ? null : (int) $this->data['Max-Age'];
     }
 
     /**
      * Set the max-age of the cookie.
      *
-     * @param int $maxAge Max age of the cookie in seconds
+     * @param int|null $maxAge Max age of the cookie in seconds
      */
     public function setMaxAge($maxAge): void
     {
-        $this->data['Max-Age'] = $maxAge;
+        if (!is_int($maxAge) && null !== $maxAge) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an int or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Max-Age'] = $maxAge === null ? null : (int) $maxAge;
     }
 
     /**
@@ -225,19 +245,21 @@ class SetCookie
     /**
      * Set the unix timestamp for which the cookie will expire.
      *
-     * @param int|string $timestamp Unix timestamp or any English textual datetime description.
+     * @param int|string|null $timestamp Unix timestamp or any English textual datetime description.
      */
     public function setExpires($timestamp): void
     {
-        $this->data['Expires'] = \is_numeric($timestamp)
-            ? (int) $timestamp
-            : \strtotime($timestamp);
+        if (!is_int($timestamp) && !is_string($timestamp) && null !== $timestamp) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an int, string or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Expires'] = null === $timestamp ? null : (\is_numeric($timestamp) ? (int) $timestamp : \strtotime((string) $timestamp));
     }
 
     /**
      * Get whether or not this is a secure cookie.
      *
-     * @return bool|null
+     * @return bool
      */
     public function getSecure()
     {
@@ -251,7 +273,11 @@ class SetCookie
      */
     public function setSecure($secure): void
     {
-        $this->data['Secure'] = $secure;
+        if (!is_bool($secure)) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Secure'] = (bool) $secure;
     }
 
     /**
@@ -271,7 +297,11 @@ class SetCookie
      */
     public function setDiscard($discard): void
     {
-        $this->data['Discard'] = $discard;
+        if (!is_bool($discard)) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['Discard'] = (bool) $discard;
     }
 
     /**
@@ -291,7 +321,11 @@ class SetCookie
      */
     public function setHttpOnly($httpOnly): void
     {
-        $this->data['HttpOnly'] = $httpOnly;
+        if (!is_bool($httpOnly)) {
+            PPP_trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__);
+        }
+
+        $this->data['HttpOnly'] = (bool) $httpOnly;
     }
 
     /**

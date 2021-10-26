@@ -32,11 +32,20 @@ class CachingStreamTest extends TestCase
         $this->body->close();
     }
 
-    public function testUsesRemoteSizeIfPossible(): void
+    public function testUsesRemoteSizeIfAvailable(): void
     {
         $body = Psr7\Utils::streamFor('test');
         $caching = new CachingStream($body);
         self::assertSame(4, $caching->getSize());
+    }
+
+    public function testUsesRemoteSizeIfNotAvailable(): void
+    {
+        $body = new Psr7\PumpStream(function () {
+            return 'a';
+        });
+        $caching = new CachingStream($body);
+        self::assertNull($caching->getSize());
     }
 
     public function testReadsUntilCachedToByte(): void

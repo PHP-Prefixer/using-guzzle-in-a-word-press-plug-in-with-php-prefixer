@@ -57,6 +57,7 @@
             "vendor_prefixed/guzzlehttp/psr7/src/BufferStream.php",
             "vendor_prefixed/guzzlehttp/psr7/src/CachingStream.php",
             "vendor_prefixed/guzzlehttp/psr7/src/DroppingStream.php",
+            "vendor_prefixed/guzzlehttp/psr7/src/Exception/MalformedUriException.php",
             "vendor_prefixed/guzzlehttp/psr7/src/FnStream.php",
             "vendor_prefixed/guzzlehttp/psr7/src/Header.php",
             "vendor_prefixed/guzzlehttp/psr7/src/HttpFactory.php",
@@ -108,6 +109,7 @@
         "files": [
             "vendor_prefixed/ralouphie/getallheaders/src/getallheaders.php",
             "vendor_prefixed/guzzlehttp/promises/src/functions_include.php",
+            "vendor_prefixed/symfony/deprecation-contracts/function.php",
             "vendor_prefixed/guzzlehttp/guzzle/src/functions_include.php"
         ]
     }

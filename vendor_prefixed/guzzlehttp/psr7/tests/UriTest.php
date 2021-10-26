@@ -5,6 +5,7 @@ declare(strict_types=1);
 
 namespace PPP\GuzzleHttp\Tests\Psr7;
 
+use PPP\GuzzleHttp\Psr7\Exception\MalformedUriException;
 use PPP\GuzzleHttp\Psr7\Uri;
 use PHPUnit\Framework\TestCase;
 use PPP\Psr\Http\Message\UriInterface;
@@ -105,8 +106,7 @@ class UriTest extends TestCase
      */
     public function testInvalidUrisThrowException(string $invalidUri): void
     {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Unable to parse URI');
+        $this->expectException(MalformedUriException::class);
         new Uri($invalidUri);
     }
 

@@ -258,6 +258,11 @@ class Stream implements StreamInterface
         return $result;
     }
 
+    /**
+     * {@inheritdoc}
+     *
+     * @return mixed
+     */
     public function getMetadata($key = null)
     {
         if (!isset($this->stream)) {
